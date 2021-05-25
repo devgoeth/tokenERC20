@@ -1,3 +1,4 @@
+//"SPDX-License-Identifier: MIT"
 pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -14,7 +15,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract FuckCryptoFUD is ERC20 {
 
     /**
-    * @notice Mint 1 000 000 FCFUD tokens
+    * @notice Mint 1 000 000 FCFUD tokens and send to owner
     */
     constructor() ERC20("Fuck crypto FUD", "FCFUD") {
         _mint(msg.sender, 1000000 * 10 ** decimals());
@@ -25,7 +26,7 @@ contract FuckCryptoFUD is ERC20 {
     *
     * @param _amount Amount tokens for burn
     */
-    function burnMyToken(uint _amount) public {
+    function burnMyTokens(uint _amount) public {
         _burn(msg.sender, _amount);
     }
 }

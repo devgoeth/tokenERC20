@@ -10,3 +10,4 @@ build
 # environment variables
 .env
 .idea
+.secret
