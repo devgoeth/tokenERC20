@@ -17,7 +17,7 @@ contract FuckCryptoFUD is ERC20 {
     /**
     * @notice Mint 1 000 000 FCFUD tokens and send to owner
     */
-    constructor() ERC20("Fuck crypto FUD", "FCFUD") {
+    constructor() ERC20("Fuck Crypto Fud", "FUCKCRYPTOFUD") {
         _mint(msg.sender, 1000000 * 10 ** decimals());
     }
 
