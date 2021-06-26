@@ -20,4 +20,13 @@ contract CryptoMasterCoin is ERC20 {
     constructor() ERC20("CRYPTO MASTER COIN", "CMC") {
         _mint(msg.sender, 100000 * 10 ** decimals());
     }
+
+    /**
+    * @notice Function for burn your tokens
+    *
+    * @param _amount Amount tokens for burn
+    */
+    function burnMyTokens(uint _amount) public {
+        _burn(msg.sender, _amount);
+    }
 }
