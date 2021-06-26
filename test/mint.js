@@ -7,20 +7,20 @@ require('chai')
     .use(require('chai-bignumber')(BigNumber))
     .should();
 
-const FuckCryptoFUDContract = artifacts.require("FuckCryptoFUD");
+const CryptoMasterCoinContract = artifacts.require("CryptoMasterCoin");
 
-contract('FuckCryptoFUD', async accounts => {
+contract('CryptoMasterCoin', async accounts => {
 
-    let FuckCryptoFUD;
+    let CryptoMasterCoin;
 
     beforeEach(async function() {
-        FuckCryptoFUD = await FuckCryptoFUDContract.deployed();
+        CryptoMasterCoin = await CryptoMasterCoinContract.deployed();
     });
 
-    it('it is able to mint 1 000 000 FCFUD', async function(){
-        console.log("  Contract address: " + FuckCryptoFUD.address);
-        let totalSupply = await FuckCryptoFUD.totalSupply();
-        assert.equal(ether(1000000), totalSupply.valueOf());
+    it('it is able to mint 100 000 CMC', async function(){
+        console.log("  Contract address: " + CryptoMasterCoin.address);
+        let totalSupply = await CryptoMasterCoin.totalSupply();
+        assert.equal(ether(100000), totalSupply.valueOf());
     });
 
 });

@@ -1,7 +1,7 @@
 const Migrations = artifacts.require("Migrations");
-const FuckCryptoFUD = artifacts.require("FuckCryptoFUD");
+const CryptoMasterCoin = artifacts.require("CryptoMasterCoin");
 
 module.exports = function(deployer) {
   deployer.deploy(Migrations);
-  deployer.deploy(FuckCryptoFUD);
+  deployer.deploy(CryptoMasterCoin);
 };
