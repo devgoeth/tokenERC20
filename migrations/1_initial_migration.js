@@ -1,7 +1,7 @@
 const Migrations = artifacts.require("Migrations");
-const CryptoMasterCoin = artifacts.require("CryptoMasterCoin");
+const CoinHodlCoin = artifacts.require("CoinHodlCoin");
 
 module.exports = function(deployer) {
   deployer.deploy(Migrations);
-  deployer.deploy(CryptoMasterCoin);
+  deployer.deploy(CoinHodlCoin);
 };

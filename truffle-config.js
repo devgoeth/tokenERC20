@@ -32,7 +32,22 @@ module.exports = {
             timeoutBlocks: 200,
             skipDryRun: true,
             gasPrice: web3.utils.toWei('10', 'gwei')
-        }
+        },
+        rinkeby: {
+            provider: () => new HDWalletProvider(
+                mnemonic,
+                `https://rinkeby.infura.io/v3/c2bf1af4af5d46398930cc5bfcd8596f`,
+                0,
+                10
+            ),
+            network_id: 4,
+            confirmations: 2,
+            timeoutBlocks: 200,
+            skipDryRun: true,
+            networkCheckTimeout: 1000000,
+            gasPrice: web3.utils.toWei('20', 'gwei')
+            //from: "0x9fF8c5a477fAAC59Fda54b7c517D4dC1674ebe56"
+        },
     },
     plugins: [
         'truffle-plugin-verify'
