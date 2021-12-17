@@ -53,7 +53,7 @@ module.exports = {
         'truffle-plugin-verify'
     ],
     api_keys: {
-        bscscan: 'API_KEY'
+        bscscan: '7283IHKQ28JWK6ERAIUNH78A8HSQ8U1TVX'
     },
     compilers: {
         solc: {

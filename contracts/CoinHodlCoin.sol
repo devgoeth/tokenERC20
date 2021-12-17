@@ -7,8 +7,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /**
 * BEP20 Token.
 * Name: Coin Hodl can be sold 24 hours after purchase
-* Symbol: Coin Hodl 24h
-* Total supply: 10 00 000 Coin Hodl 24h
+* Symbol: Coin Hodl
+* Total supply: 10 000 000 Coin Hodl 24h
 * Decimals: 18
 *
 * Coin Hodl can be sold 24 hours after purchase
@@ -20,28 +20,20 @@ contract CoinHodlCoin is ERC20, Ownable {
     mapping (address => bool) public whiteList;
 
     /**
-    * @notice Mint 10 000 000 CMC tokens and send to owner
+    * @notice Mint 10 000 000 tokens and send to owner
     */
-    constructor() ERC20("Coin Hodl can be sold 24 hours after purchase", "Coin Hodl 24h") {
+    constructor() ERC20("Coin Hodl can be sold 24 hours after purchase", "CoinHodl24h") {
         _mint(msg.sender, 10000000 * 10 ** decimals());
     }
 
-    /**
-     * @dev See {IERC20-transfer}.
-     *
-     * Requirements:
-     *
-     * - recipient cannot be the zero address.
-     * - the caller must have a balance of at least `amount`.
-     */
-    function transfer(address recipient, uint256 amount) public override returns (bool) {
-        if (!whiteList[_msgSender()]) {
-            uint difference = block.timestamp - lastIncomes[_msgSender()];
-            require(difference >= 86400, "Hodl period is not reached, wait pls.");
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override
+    {
+        super._beforeTokenTransfer(from, to, amount);
+
+        if (!whiteList[from]) {
+            require(timeLimit(from) >= 86400, "Hodl period is not reached, wait pls.");
         }
-        _transfer(_msgSender(), recipient, amount);
-        lastIncomes[recipient] = block.timestamp;
-        return true;
+        lastIncomes[to] = block.timestamp;
     }
 
     /**
